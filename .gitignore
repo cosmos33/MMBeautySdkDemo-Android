@@ -1,0 +1,17 @@
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+/gradle/wrapper/
+/gradle/wrapper/*
+build/
+.idea
+app/build/*
+app/build
+app/maindexlist.txt
+core/build
+core/build/*

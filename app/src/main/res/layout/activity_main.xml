@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.cosmos.beautydemo.fragment.AspectFrameLayout
+        android:id="@+id/cameraPreview_afl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SurfaceView
+            android:id="@+id/surfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.cosmos.beautydemo.fragment.AspectFrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvBeauty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:onClick="onBeautyClick"
+            android:padding="8dp"
+            android:text="美颜"
+            android:textColor="@color/colorAccent"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvLookup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:onClick="onLookupClick"
+            android:padding="8dp"
+            android:text="滤镜"
+            android:textColor="@color/colorAccent"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvFaceSticker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:onClick="onStickerClick"
+            android:padding="8dp"
+            android:text="贴纸"
+            android:textColor="@color/colorAccent"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:onClick="onStickerClearClick"
+            android:padding="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="移除贴纸"
+            android:textColor="@color/colorAccent" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:onClick="onSwitchClick"
+        android:padding="8dp"
+        android:text="切换摄像头"
+        android:textColor="@color/colorAccent" />
+
+    <ImageView
+        android:id="@+id/ivCover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/ic_moment_theme_bg"
+        tools:visibility="gone" />
+
+    <fragment
+        android:id="@+id/fragmentFilter"
+        class="com.cosmos.beautydemo.fragment.filter.LookupFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+
+    <fragment
+        android:id="@+id/fragmentFaceMask"
+        class="com.cosmos.beautydemo.fragment.sticker.StickerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+
+    <fragment
+        android:id="@+id/fragmentBeautyType"
+        class="com.cosmos.beautydemo.fragment.beautytype.BeautyTypeFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+
+    <FrameLayout
+        android:id="@+id/flResourcePrepare"
+        android:layout_width="match_parent"
+        android:onClick="onResourcePrepareClick"
+        android:layout_height="match_parent"
+        android:background="#66111111">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="资源准备中，请稍后..."
+            android:layout_gravity="center"
+            android:paddingBottom="200dp"
+            android:textSize="30sp"
+            android:textColor="@color/colorAccent"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+</FrameLayout>
