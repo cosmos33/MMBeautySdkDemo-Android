@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion "29.0.3"
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.cosmos.beautydemo"
@@ -12,31 +12,14 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        ndk {
-            abiFilters rootProject.ext.abiFilters
-        }
-    }
 
-    signingConfigs {
-        config {
-            keyAlias 'cosmos'
-            keyPassword 'mmtest'
-            storeFile file('keystore')
-            storePassword 'mmtest'
-            v2SigningEnabled true   // android 5.0-8.0，必须用V2，否则会有安全问题
-            v1SigningEnabled true
-        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            signingConfig signingConfigs.config
-            minifyEnabled true
-            zipAlignEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            signingConfig signingConfigs.config
         }
     }
 
@@ -45,46 +28,20 @@ android {
         targetCompatibility 1.8
     }
 
-    packagingOptions {
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_handlandmark.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_bodylandmark.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_facerig.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_handgesture.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_objecttracker.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_facequality.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_facerecog4pet.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_segmentation.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_express.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_beautyscore.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_datarecycle.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_facegender.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_datarecycle.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_barenessdetect.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_flowextent.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_imgloader.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libMediaEncoder.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libarcore_sdk_c.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libyuvutils.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_facerigv3.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_pickercover.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmediadecoder.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libMediaUtils.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libMediaMuxer.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libMOMOPitchShift.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_arpet.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libarcore_sdk_jni.so"
-    }
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "com.cosmos.mediax:beautysdk:1.2.3"
-
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'com.cosmos.rifle:core:2.1.5'
     implementation 'com.cosmos.rifle:native:1.1.8'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation project(path:":qiniu")
+    implementation project(path:":tx")
+    implementation project(path:":mmnormal")
 }
 
 apply plugin: 'rifle.plugin'
@@ -97,3 +54,4 @@ rifleConfig {
     // enableSymbolsUpload = true         // 打开/关闭提交带符号表SO的功能（默认为true）
     // waitingSymbolsUpload = true      // 打包完成后需要确认符号表文件是否提交完成，未完成需要等待提交完成。默认true
 }
+

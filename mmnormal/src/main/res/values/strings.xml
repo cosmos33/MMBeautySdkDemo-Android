@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">beauty demo</string>
+
+    <string name="livepusher_receive_event">receive event: </string>
+    <string name="livepusher_license_check_fail">License 校验失败</string>
+    <string name="livepusher_license_click_info"> 详情请点击[</string>
+    <string name="livepusher_license_click_use_info"> 详情请点击[License 使用指南</string>
+</resources>

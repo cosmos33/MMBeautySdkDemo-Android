@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/livepusher_content_bg">
+
+    <com.tencent.rtmp.ui.TXCloudVideoView
+        android:id="@+id/livepusher_tx_cloud_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/livepusher_btn_start"
+            android:layout_width="@dimen/livepusher_icon_width"
+            android:layout_height="@dimen/livepusher_icon_width"
+            android:background="@drawable/livepusher_start"
+            android:onClick="onClick" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/livepusher_btn_switch_camera"
+            android:layout_width="@dimen/livepusher_icon_width"
+            android:onClick="onClick"
+            android:layout_height="@dimen/livepusher_icon_height"
+            android:background="@drawable/livepusher_camera_front" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</RelativeLayout>

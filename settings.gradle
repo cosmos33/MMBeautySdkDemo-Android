@@ -1,2 +1,6 @@
+rootProject.name='BeautySDK'
+include ':qiniu', ':tx'
+include ':mmnormal'
+
+include ':base'
 include ':app'
-rootProject.name='BeautySDKDemo'

@@ -5,7 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
@@ -36,9 +36,13 @@ task clean(type: Delete) {
 
 ext {
     mdlogVersion = '2.0.0'
-    dev = true
     compileSdkVersion = 28
     minSdkVersion = 21
     targetSdkVersion = 28
+    buildToolsVersion = "29.0.3"
+    supportSdkVersion = "26.0.1"
+    liteavSdk="com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release"
+
+    xesceneVersion = "4.4.4-20200827.1913"
     abiFilters = "arm64-v8a"//"arm64-v8a" // "armeabi"  "armeabi-v7a"
 }

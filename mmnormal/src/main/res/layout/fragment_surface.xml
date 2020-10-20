@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.cosmos.appbase.AspectFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cameraPreview_afl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/ivCover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/ic_moment_theme_bg"
+        tools:visibility="gone" />
+</com.cosmos.appbase.AspectFrameLayout>
