@@ -62,6 +62,7 @@ public class CameraPushTxVideoCaptureImpl extends CameraPushImpl implements TXLi
     protected void startPreview(TXCloudVideoView mPusherView) {
         this.mPusherView = mPusherView;
         mLivePusher.getConfig().setVideoFPS(30);
+        mLivePusher.setMirror(true);
         mLivePusher.getConfig().enableHighResolutionCaptureMode(false);
         mLivePusher.getConfig().setFrontCamera(true);
 //        mLivePusher.getConfig().setVideoResolution(TXLiveConstants.VIDEO_RESOLUTION_TYPE_1280_720);
@@ -69,7 +70,11 @@ public class CameraPushTxVideoCaptureImpl extends CameraPushImpl implements TXLi
         mLivePusher.setVideoProcessListener(this);
         mLivePusher.startCameraPreview(mPusherView);
     }
-
+    @Override
+    public void switchCamera() {
+        super.switchCamera();
+        mLivePusher.setMirror(mFrontCamera);
+    }
     @Override
     protected void setVisibility(int visibility) {
         if (mPusherView != null) {
@@ -83,7 +88,7 @@ public class CameraPushTxVideoCaptureImpl extends CameraPushImpl implements TXLi
     @Override
     public int onTextureCustomProcess(int texture, int texWidth, int texHeight) {
         if (rotateFilter == null) {
-            rotateFilter = new RotateFilter(RotateFilter.ROTATE_180);
+            rotateFilter = new RotateFilter(RotateFilter.ROTATE_VERTICAL);
             faceInfoCreatorPBOFilter = new FaceInfoCreatorPBOFilter(texWidth, texHeight);
             emptyFilter.setWidth(texWidth);
             emptyFilter.setHeight(texHeight);
