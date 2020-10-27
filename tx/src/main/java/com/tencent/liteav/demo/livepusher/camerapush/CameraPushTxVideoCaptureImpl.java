@@ -63,6 +63,9 @@ public class CameraPushTxVideoCaptureImpl extends CameraPushImpl implements TXLi
         this.mPusherView = mPusherView;
         mLivePusher.getConfig().setVideoFPS(30);
         mLivePusher.setMirror(true);
+        //调用下边方法解决预览卡顿！！！！！！！！！！！！！
+        //调用下边方法解决预览卡顿！！！！！！！！！！！！！
+        //调用下边方法解决预览卡顿！！！！！！！！！！！！！
         mLivePusher.getConfig().enableHighResolutionCaptureMode(false);
         mLivePusher.getConfig().setFrontCamera(true);
 //        mLivePusher.getConfig().setVideoResolution(TXLiveConstants.VIDEO_RESOLUTION_TYPE_1280_720);
