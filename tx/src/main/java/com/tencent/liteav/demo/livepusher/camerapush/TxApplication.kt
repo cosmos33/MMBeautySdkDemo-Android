@@ -5,8 +5,8 @@ import com.tencent.rtmp.TXLiveBase
 
 object TxApplication {
     var licenceUrl =
-        "http://license.vod2.myqcloud.com/license/v1/01d65cf7f3dd34339328c7219f7a5517/TXLiveSDK.licence"
-    var licenseKey = "ddbbe1446d9fb08dfe993081fda61760"
+        "http://license.vod2.myqcloud.com/license/v1/ff6a0fcbf52804e5f9ef60679a606e71/TXLiveSDK.licence"
+    var licenseKey = "52e64dcc93d73caf9dbe783a9c2981f4"
 
     var context: Context? = null
     var cosmosAppId: String = ""

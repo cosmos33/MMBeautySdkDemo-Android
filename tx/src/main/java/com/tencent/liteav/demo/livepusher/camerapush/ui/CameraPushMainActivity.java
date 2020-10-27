@@ -68,7 +68,7 @@ public class CameraPushMainActivity extends FragmentActivity implements CameraPu
 
     private Button mBtnStartPush;                 // 开启推流的按钮
 
-    private String mPusherURL = "rtmp://172.16.39.14:1935/myapp/txliveandroid";   // 推流地址
+    private String mPusherURL = "rtmp://172.16.139.32:1935/myapp/txliveandroid";   // 推流地址
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
