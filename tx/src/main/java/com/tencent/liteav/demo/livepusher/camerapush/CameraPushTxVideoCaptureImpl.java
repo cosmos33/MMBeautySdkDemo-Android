@@ -6,9 +6,6 @@ import androidx.multidex.BuildConfig;
 
 import com.core.glcore.cv.MMCVInfo;
 import com.core.glcore.util.ImageFrame;
-import com.cosmos.appbase.filter.Empty2Filter;
-import com.cosmos.appbase.filter.FaceInfoCreatorPBOFilter;
-import com.cosmos.appbase.filter.RotateFilter;
 import com.cosmos.appbase.listener.OnFilterResourcePrepareListener;
 import com.cosmos.appbase.listener.OnStickerResourcePrepareListener;
 import com.cosmos.appbase.utils.FilterUtils;
@@ -26,6 +23,9 @@ import com.cosmos.beauty.module.lookup.ILookupModule;
 import com.cosmos.beauty.module.sticker.DetectRect;
 import com.cosmos.beauty.module.sticker.IStickerModule;
 import com.cosmos.beauty.module.sticker.MaskLoadCallback;
+import com.cosmos.beautyutils.Empty2Filter;
+import com.cosmos.beautyutils.FaceInfoCreatorPBOFilter;
+import com.cosmos.beautyutils.RotateFilter;
 import com.mm.mmutil.toast.Toaster;
 import com.momo.mcamera.mask.MaskModel;
 import com.tencent.liteav.demo.livepusher.camerapush.model.CameraPushImpl;
@@ -204,10 +204,10 @@ public class CameraPushTxVideoCaptureImpl extends CameraPushImpl implements TXLi
     private void initRender() {
         iBeautyModule = CosmosBeautySDK.INSTANCE.createBeautyModule();
         renderModuleManager.registerModule(iBeautyModule);
-        iBeautyModule.setValue(SimpleBeautyType.BIG_EYE, 1.0f);
+        iBeautyModule.setValue(SimpleBeautyType.BIG_EYE, .4f);
 //        iBeautyModule.setValue(SimpleBeautyType.SKIN_SMOOTH, 1.0f);
 //        iBeautyModule.setValue(SimpleBeautyType.SKIN_WHITENING, 1.0f);
-        iBeautyModule.setValue(SimpleBeautyType.THIN_FACE, 1.0f);
+        iBeautyModule.setValue(SimpleBeautyType.THIN_FACE, .4f);
 
         iLookupModule = CosmosBeautySDK.INSTANCE.createLoopupModule();
         renderModuleManager.registerModule(iLookupModule);

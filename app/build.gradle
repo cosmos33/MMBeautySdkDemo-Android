@@ -28,6 +28,15 @@ android {
         targetCompatibility 1.8
     }
 
+    packagingOptions {
+        pickFirst 'lib/armeabi/libyuvutils.so'
+        pickFirst 'lib/armeabi/libyuvtools.so'
+        pickFirst 'lib/arm64-v8a/libyuvutils.so'
+        pickFirst 'lib/arm64-v8a/libyuvtools.so'
+        pickFirst 'lib/armeabi-v7a/libyuvutils.so'
+        pickFirst 'lib/armeabi-v7a/libyuvtools.so'
+    }
+
 }
 
 dependencies {

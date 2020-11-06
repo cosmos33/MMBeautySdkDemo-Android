@@ -3,6 +3,8 @@ package com.cosmos.appbase.filter;
 import android.opengl.GLES20;
 import android.util.Size;
 
+import com.cosmos.beautyutils.YUV2TexureHelper;
+
 import project.android.imageprocessing.input.NV21PreviewInput;
 
 public class FBOHelper {
