@@ -48,6 +48,7 @@ public class CameraPushTxVideoCaptureImpl extends CameraPushImpl implements TXLi
     private ILookupModule iLookupModule;
     private IStickerModule iStickerModule;
     private RotateFilter rotateFilter;
+    private boolean resourceReady = false;
 
     public CameraPushTxVideoCaptureImpl(Context context, TXCloudVideoView pusherView, int screenRotation) {
         super(context, pusherView);
@@ -90,14 +91,14 @@ public class CameraPushTxVideoCaptureImpl extends CameraPushImpl implements TXLi
 
     @Override
     public int onTextureCustomProcess(int texture, int texWidth, int texHeight) {
-        if (rotateFilter == null) {
-            rotateFilter = new RotateFilter(RotateFilter.ROTATE_VERTICAL);
-            faceInfoCreatorPBOFilter = new FaceInfoCreatorPBOFilter(texWidth, texHeight);
-            emptyFilter.setWidth(texWidth);
-            emptyFilter.setHeight(texHeight);
-        }
-        int rotateTexture = rotateFilter.rotateTexture(texture, texWidth, texHeight);
-        if (renderModuleManager != null) {
+        if (resourceReady) {
+            if (rotateFilter == null) {
+                rotateFilter = new RotateFilter(RotateFilter.ROTATE_VERTICAL);
+                faceInfoCreatorPBOFilter = new FaceInfoCreatorPBOFilter(texWidth, texHeight);
+                emptyFilter.setWidth(texWidth);
+                emptyFilter.setHeight(texHeight);
+            }
+            int rotateTexture = rotateFilter.rotateTexture(texture, texWidth, texHeight);
             faceInfoCreatorPBOFilter.newTextureReady(rotateTexture, emptyFilter, true);
             if (faceInfoCreatorPBOFilter.byteBuffer != null) {
                 byte[] frameData = new byte[faceInfoCreatorPBOFilter.byteBuffer.remaining()];
@@ -196,6 +197,7 @@ public class CameraPushTxVideoCaptureImpl extends CameraPushImpl implements TXLi
                 @Override
                 public void run() {
                     initRender();
+                    resourceReady = true;
                 }
             });
         }
