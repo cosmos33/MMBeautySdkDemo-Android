@@ -12,11 +12,13 @@ buildscript {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.1'
         classpath 'com.novoda:bintray-release:0.9'
 
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:3.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.cosmos.rifle:plugin:1.5.0'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-rc2'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.0-alpha06"
     }
 }
 
@@ -42,6 +44,7 @@ ext {
     buildToolsVersion = "29.0.3"
     supportSdkVersion = "26.0.1"
     liteavSdk="com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release"
+    beautyutils = "1.0.1_11241607"
 
     xesceneVersion = "4.4.4-20200827.1913"
     abiFilters = "arm64-v8a"//"arm64-v8a" // "armeabi"  "armeabi-v7a"

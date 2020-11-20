@@ -6,6 +6,7 @@ import com.cosmos.beautymmdemo.BeautyApplication
 import com.mm.rifle.Rifle
 import com.qiniu.pili.droid.streaming.demo.StreamingApplication
 import com.tencent.liteav.demo.livepusher.camerapush.TxApplication
+import io.agora.api.example.AgoraApplication
 
 class MyApplication : Application() {
     val cosmosAppId = "cosmos后台的appid"
@@ -22,5 +23,6 @@ class MyApplication : Application() {
         BeautyApplication.cosmosAppId = cosmosAppId
         TxApplication.onCreate(this, cosmosAppId)
         StreamingApplication.getInstance().onCreate(this, cosmosAppId)
+        AgoraApplication.onCreate(this, cosmosAppId)
     }
 }

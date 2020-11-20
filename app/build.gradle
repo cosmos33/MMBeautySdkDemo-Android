@@ -51,6 +51,7 @@ dependencies {
     implementation project(path:":qiniu")
     implementation project(path:":tx")
     implementation project(path:":mmnormal")
+    implementation project(path:":agora")
 }
 
 apply plugin: 'rifle.plugin'

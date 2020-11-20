@@ -24,4 +24,10 @@
         android:onClick="onTXDemoClick"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:text="声网sdk接入美颜sdk demo"
+        android:layout_width="wrap_content"
+        android:onClick="onAgoraDemoClick"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

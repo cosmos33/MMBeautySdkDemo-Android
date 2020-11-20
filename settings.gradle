@@ -1,5 +1,5 @@
 rootProject.name='BeautySDK'
-include ':qiniu', ':tx'
+include ':qiniu', ':tx', ':agora-lib-push-externalvideo', ':agora-lib-stream-encrypt', ':agora-lib-component', ':agora', ':agora-lib-raw-data', ':agora-lib-switch-external-video'
 include ':mmnormal'
 
 include ':base'

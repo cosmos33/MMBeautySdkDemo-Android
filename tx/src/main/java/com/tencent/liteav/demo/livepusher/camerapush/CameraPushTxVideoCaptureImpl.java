@@ -26,6 +26,7 @@ import com.cosmos.beauty.module.sticker.MaskLoadCallback;
 import com.cosmos.beautyutils.Empty2Filter;
 import com.cosmos.beautyutils.FaceInfoCreatorPBOFilter;
 import com.cosmos.beautyutils.RotateFilter;
+import com.immomo.resdownloader.utils.MainThreadExecutor;
 import com.mm.mmutil.toast.Toaster;
 import com.momo.mcamera.mask.MaskModel;
 import com.tencent.liteav.demo.livepusher.camerapush.model.CameraPushImpl;
@@ -157,7 +158,7 @@ public class CameraPushTxVideoCaptureImpl extends CameraPushImpl implements TXLi
                 if (!result.isSucceed()) {
                     Toaster.show("授权失败");
                 } else {
-                    mPusherView.post(new Runnable() {
+                    MainThreadExecutor.post(new Runnable() {
                         @Override
                         public void run() {
                             authSuccess = true;

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    <string name="agora_app_id" translatable="false">YOUR APP ID</string>-->
+    <!--    <string name="agora_access_token" translatable="false">YOUR ACCESS TOKEN</string>-->
+    <string name="agora_app_id" translatable="false">3d49d27e09094021bb2a3ec60ac555ed</string>
+    <string name="agora_access_token" translatable="false">0063d49d27e09094021bb2a3ec60ac555edIABLgTK6f5PjBgvXmNNoBYDwtTt9qWvbLbdj2Zkzmo10BKEJnt4AAAAAEABID2Uq3lC/XwEAAQDeUL9f</string>
+    <!--    <string name="agora_app_id" translatable="false"></string>-->
+    <!--    <string name="agora_access_token" translatable="false"></string>-->
+</resources>

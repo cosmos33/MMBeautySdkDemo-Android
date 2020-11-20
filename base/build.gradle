@@ -33,5 +33,5 @@ dependencies {
 
 
     implementation "com.cosmos.mediax:beautysdk_interact:$VERSION_NAME"
-    api 'com.cosmos.mediax:beautyutils:1.0.0_11061040'
+    api "com.cosmos.mediax:beautyutils:$beautyutils"
 }

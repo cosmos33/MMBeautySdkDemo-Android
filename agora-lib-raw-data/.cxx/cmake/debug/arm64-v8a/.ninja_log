@@ -1,0 +1,5 @@
+# ninja log v5
+1	1309	0	CMakeFiles/apm-plugin-raw-data.dir/src/main/cpp/io_agora_advancedvideo_rawdata_MediaPreProcessing.cpp.o	202a80a31ca77c42
+1309	1478	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libapm-plugin-raw-data.so	afcd4961a626740e
+17	1201	0	CMakeFiles/apm-plugin-raw-data.dir/src/main/cpp/io_agora_advancedvideo_rawdata_MediaPreProcessing.cpp.o	202a80a31ca77c42
+1201	1505	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libapm-plugin-raw-data.so	afcd4961a626740e

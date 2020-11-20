@@ -1,0 +1,3 @@
+/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/.cxx/cmake/debug/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/.cxx/cmake/debug/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/.cxx/cmake/debug/arm64-v8a/CMakeFiles/apm-plugin-raw-data.dir

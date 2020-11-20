@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.cosmos.beautymmdemo.BeautyMainActivity
 import com.qiniu.pili.droid.streaming.demo.QiNiuActivity
 import com.tencent.liteav.demo.livepusher.camerapush.TXMainActivity
+import io.agora.api.example.AgoraMainActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,5 +26,9 @@ class MainActivity : AppCompatActivity() {
 
     fun onTXDemoClick(view: View) {
         startActivity(Intent(this, TXMainActivity::class.java))
+    }
+
+    fun onAgoraDemoClick(view: View) {
+        startActivity(Intent(this, AgoraMainActivity::class.java))
     }
 }

@@ -1,0 +1,41 @@
+
+{
+	"buildFiles" : 
+	[
+		"/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"/Users/momo/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/.cxx/cmake/debug/armeabi-v7a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"apm-plugin-raw-data-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "apm-plugin-raw-data",
+			"buildCommand" : "/Users/momo/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/.cxx/cmake/debug/armeabi-v7a --target apm-plugin-raw-data",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi16 --gcc-toolchain=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dapm_plugin_raw_data_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -mfpu=neon -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/src/main/cpp/io_agora_advancedvideo_rawdata_MediaPreProcessing.cpp",
+					"workingDirectory" : "/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/.cxx/cmake/debug/armeabi-v7a"
+				}
+			],
+			"output" : "/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/build/intermediates/cmake/debug/obj/armeabi-v7a/libapm-plugin-raw-data.so",
+			"toolchain" : "7779243642263699954"
+		}
+	},
+	"toolchains" : 
+	{
+		"7779243642263699954" : 
+		{
+			"cCompilerExecutable" : "/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+		}
+	}
+}

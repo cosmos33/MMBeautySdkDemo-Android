@@ -14,6 +14,7 @@ import com.fanyiran.utils.base.RvBaseFragment
 import com.fanyiran.utils.recycleadapter.ItemData
 import com.fanyiran.utils.recycleadapter.RvBaseAdapter
 import com.fanyiran.utils.recycleadapter.RvListenerImpl
+import com.immomo.medialog.thread.MainThreadExecutor
 import com.mm.mmutil.toast.Toaster
 import java.io.File
 
@@ -101,7 +102,7 @@ class StickerFragment : RvBaseFragment() {
     private fun fakeDownloadSticker() {
         FilterUtils.prepareStikcerResource(context, object : OnStickerResourcePrepareListener {
             override fun onStickerReady(rootPath: String) {
-                recyclerView.post {
+                MainThreadExecutor.execute() {
                     stickerSuccess = true
                     onStickerResouceCallback?.isStickerResourceReady()
                     initFilterData(rootPath)

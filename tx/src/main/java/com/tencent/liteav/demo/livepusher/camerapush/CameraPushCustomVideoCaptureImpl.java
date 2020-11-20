@@ -41,6 +41,7 @@ import com.cosmos.beauty.module.sticker.DetectRect;
 import com.cosmos.beauty.module.sticker.IStickerModule;
 import com.cosmos.beauty.module.sticker.MaskLoadCallback;
 import com.cosmos.beautyutils.RotateFilter;
+import com.immomo.resdownloader.utils.MainThreadExecutor;
 import com.mm.mmutil.toast.Toaster;
 import com.momo.mcamera.mask.MaskModel;
 import com.tencent.liteav.demo.livepusher.BuildConfig;
@@ -263,7 +264,7 @@ public class CameraPushCustomVideoCaptureImpl extends CameraPushImpl implements 
                 if (!result.isSucceed()) {
                     Toaster.show("授权失败");
                 } else {
-                    ((View) mPusherView).post(new Runnable() {
+                    MainThreadExecutor.post(new Runnable() {
                         @Override
                         public void run() {
                             authSuccess = true;
