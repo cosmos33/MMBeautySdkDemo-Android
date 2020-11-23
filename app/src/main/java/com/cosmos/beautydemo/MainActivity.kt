@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), OnPreviewDataCallback,
     IMMRenderModuleManager.CVModelStatusListener, IMMRenderModuleManager.IDetectGestureCallback,
     IMMRenderModuleManager.IDetectFaceCallback {
     private val TAG = "MainActivity_Detect"
-    val cosmosAppId = "6b38bc8e6afdbd040b8f6386b65c0aac"
+    val cosmosAppId = "cosmos后台的appid"
 
     private val SHOW_BEAUTY = 1
     private val SHOW_FILTER = 2
