@@ -6,7 +6,7 @@ dependencies {
     implementation 'com.journeyapps:zxing-android-embedded:3.0.2@aar'
     implementation 'com.google.zxing:core:3.2.0'
     implementation files('libs/pldroid-media-streaming-3.0.0.jar')
-    implementation "com.cosmos.mediax:beautysdk:$VERSION_NAME"
+    implementation "com.cosmos.mediax:beautysdk_interact:$VERSION_NAME"
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation "androidx.annotation:annotation:1.1.0"
 }

@@ -14,5 +14,5 @@ dependencies {
     compile 'com.kyleduo.switchbutton:library:2.0.0'
     implementation project(path: ':base')
 
-    implementation "com.cosmos.mediax:beautysdk:$VERSION_NAME"
+    implementation "com.cosmos.mediax:beautysdk_interact:$VERSION_NAME"
 }

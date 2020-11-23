@@ -45,32 +45,11 @@ android {
     }
 
     packagingOptions {
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_handlandmark.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_bodylandmark.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_facerig.so"
         exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_handgesture.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_objecttracker.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_facequality.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_facerecog4pet.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_segmentation.so"
         exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_express.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_beautyscore.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_datarecycle.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_facegender.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_datarecycle.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_barenessdetect.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_flowextent.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_imgloader.so"
         exclude "lib/${rootProject.ext.abiFilters}/libMediaEncoder.so"
         exclude "lib/${rootProject.ext.abiFilters}/libarcore_sdk_c.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libyuvutils.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_facerigv3.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_pickercover.so"
         exclude "lib/${rootProject.ext.abiFilters}/libmediadecoder.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libMediaUtils.so"
         exclude "lib/${rootProject.ext.abiFilters}/libMediaMuxer.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libMOMOPitchShift.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libmmcv_api_arpet.so"
-        exclude "lib/${rootProject.ext.abiFilters}/libarcore_sdk_jni.so"
     }
 }

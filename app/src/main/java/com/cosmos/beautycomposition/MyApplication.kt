@@ -8,7 +8,7 @@ import com.qiniu.pili.droid.streaming.demo.StreamingApplication
 import com.tencent.liteav.demo.livepusher.camerapush.TxApplication
 
 class MyApplication : Application() {
-    val cosmosAppId = "6b38bc8e6afdbd040b8f6386b65c0aac"
+    val cosmosAppId = "cosmos后台的appid"
 
     companion object {
         var context: Context? = null
