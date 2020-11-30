@@ -58,7 +58,7 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "com.cosmos.mediax:beautysdk_interact:1.3.0_11191219"
+    implementation "com.cosmos.mediax:beautysdk_interact:1.3.1_11261902"
 
     implementation 'com.cosmos.rifle:core:2.1.5'
     implementation 'com.cosmos.rifle:native:1.1.8'
