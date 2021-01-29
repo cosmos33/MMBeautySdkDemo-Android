@@ -6,6 +6,8 @@ import com.cosmos.beautymmdemo.BeautyApplication
 import com.mm.rifle.Rifle
 import com.qiniu.pili.droid.streaming.demo.StreamingApplication
 import com.tencent.liteav.demo.livepusher.camerapush.TxApplication
+import com.zego.common.application.ZegoApplication
+import com.zego.videofilter.ZegoInitHelper
 import io.agora.api.example.AgoraApplication
 
 class MyApplication : Application() {
@@ -24,5 +26,7 @@ class MyApplication : Application() {
         TxApplication.onCreate(this, cosmosAppId)
         StreamingApplication.getInstance().onCreate(this, cosmosAppId)
         AgoraApplication.onCreate(this, cosmosAppId)
+        ZegoApplication.onCreate(this)
+        ZegoInitHelper.init(this)
     }
 }

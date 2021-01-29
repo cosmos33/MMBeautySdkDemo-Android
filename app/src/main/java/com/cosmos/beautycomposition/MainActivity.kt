@@ -8,6 +8,7 @@ import com.cosmos.beautymmdemo.BeautyMainActivity
 import com.qiniu.pili.droid.streaming.demo.QiNiuActivity
 import com.tencent.liteav.demo.livepusher.camerapush.TXMainActivity
 import io.agora.api.example.AgoraMainActivity
+import com.zego.videofilter.ui.VideoFilterMainUI
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,5 +31,9 @@ class MainActivity : AppCompatActivity() {
 
     fun onAgoraDemoClick(view: View) {
         startActivity(Intent(this, AgoraMainActivity::class.java))
+    }
+
+    fun onZegoDemoClick(view: View){
+        VideoFilterMainUI.actionStart(this)
     }
 }
