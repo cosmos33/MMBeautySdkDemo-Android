@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".ZegoActivity"
+    >
+
+    <Button
+        android:text="第一步 初始化SDK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onInitBtn"
+        >
+
+    </Button>
+
+    <EditText
+        android:id="@+id/userId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="第二步 输入用户ID"
+        android:minHeight="10dp"
+        android:layout_marginTop="10dp"
+        >
+
+    </EditText>
+
+
+    <Button
+        android:text="第三步 登录房间"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="onLogin"
+        >
+
+    </Button>
+
+    <Button
+        android:text="第三步 开始推流"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="onGotoBeautyAndPublish"
+        >
+
+    </Button>
+
+</LinearLayout>

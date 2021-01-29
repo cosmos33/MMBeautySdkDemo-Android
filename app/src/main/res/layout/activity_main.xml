@@ -30,4 +30,10 @@
         android:onClick="onAgoraDemoClick"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:text="即构sdk接入美颜sdk demo"
+        android:layout_width="wrap_content"
+        android:onClick="onZegoDemoClick"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
