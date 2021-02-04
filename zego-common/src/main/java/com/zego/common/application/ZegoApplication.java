@@ -2,19 +2,13 @@ package com.zego.common.application;
 
 import android.app.Application;
 import android.content.Context;
-//import android.support.multidex.MultiDexApplication;
 
-import androidx.multidex.MultiDexApplication;
-
-import com.tencent.bugly.crashreport.CrashReport;
 import com.zego.common.ZGBaseHelper;
-import com.zego.common.util.AppLogger;
-import com.zego.common.widgets.log.FloatingView;
 import com.zego.common.util.DeviceInfoManager;
-import com.zego.zegoliveroom.ZegoLiveRoom;
 
-import java.lang.reflect.Method;
 import java.util.Date;
+
+//import android.support.multidex.MultiDexApplication;
 
 /**
  * Created by zego on 2018/10/16.
@@ -26,6 +20,16 @@ public class ZegoApplication  {
 
     public static void onCreate(Context context){
         zegoApplication = (Application) context;
+        String randomSuffix = "-" + new Date().getTime() % (new Date().getTime() / 1000);
+//
+        String userId = DeviceInfoManager.generateDeviceId(zegoApplication) + randomSuffix;
+        String userName = DeviceInfoManager.getProductName() + randomSuffix;
+
+        // 添加悬浮日志视图
+//        FloatingView.get().add();
+
+        // 使用Zego sdk前必须先设置SDKContext。
+        ZGBaseHelper.sharedInstance().setSDKContextEx(userId, userName, null, null, 10 * 1024 * 1024, zegoApplication);
     }
 
 //    @Override

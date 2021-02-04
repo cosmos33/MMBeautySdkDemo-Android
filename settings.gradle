@@ -4,3 +4,11 @@ include ':mmnormal'
 
 include ':base'
 include ':app'
+gradle.ext.userLocalBeauty = false
+
+if (gradle.userLocalBeauty){
+    gradle.ext.userLocalDoki = false
+    gradle.ext.userLocalEffect = false
+    include ':beautysdk'
+    project(':beautysdk').projectDir = new File(settingsDir,'../beauty-sdk_back/beauty/')
+}

@@ -1,12 +1,11 @@
 package com.zego.videofilter.ui;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-//import android.databinding.DataBindingUtil;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-//import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewStub;
@@ -15,17 +14,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.core.glcore.cv.MMCVInfo;
-import com.cosmos.beauty.CosmosBeautySDK;
-import com.cosmos.beauty.inter.OnAuthenticationStateListener;
-import com.cosmos.beauty.inter.OnBeautyResourcePreparedListener;
-import com.cosmos.beauty.model.AuthResult;
-import com.cosmos.beauty.model.BeautySDKInitConfig;
-import com.cosmos.beauty.module.IMMRenderModuleManager;
-import com.cosmos.beauty.module.beauty.IBeautyModule;
-import com.cosmos.beauty.module.beauty.SimpleBeautyType;
-import com.cosmos.beauty.module.sticker.DetectRect;
-import com.zego.common.BuildConfig;
 import com.zego.common.util.AppLogger;
 import com.zego.common.util.ZegoUtil;
 import com.zego.common.widgets.CustomDialog;
@@ -46,9 +34,6 @@ import com.zego.zegoliveroom.constants.ZegoConstants;
 import com.zego.zegoliveroom.constants.ZegoVideoViewMode;
 import com.zego.zegoliveroom.entity.ZegoPublishStreamQuality;
 import com.zego.zegoliveroom.entity.ZegoStreamInfo;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 
@@ -76,7 +61,7 @@ public class FUBeautyActivity extends AppCompatActivity implements FURenderer.On
     private String mRoomID = "";
 
     //
-    private String mUserID = "";
+    private String streamId = "";
 
     // 主播流名
     private String anchorStreamID = ZegoUtil.getPublishStreamID();
@@ -115,7 +100,7 @@ public class FUBeautyActivity extends AppCompatActivity implements FURenderer.On
         mBeautyControlView = (BeautyControlView) findViewById(R.id.fu_beauty_control);
 
         mRoomID = getIntent().getStringExtra("roomID");
-        mUserID = getIntent().getStringExtra("userID");
+        streamId = getIntent().getStringExtra("streamID");
         chooseFilterType = (VideoFilterFactoryDemo.FilterType)getIntent().getSerializableExtra ("FilterType");
 
 //        mBeautyControlView.setOnFUControlListener(mFURenderer);
@@ -125,6 +110,7 @@ public class FUBeautyActivity extends AppCompatActivity implements FURenderer.On
 
         // 设置 SDK 推流回调监听
         initSDKCallback();
+        checkAndRequestPermission(1000);
     }
 
     @Override
@@ -167,11 +153,11 @@ public class FUBeautyActivity extends AppCompatActivity implements FURenderer.On
      *
      * @param activity
      */
-    public static void actionStart(Activity activity, String roomID,String userID, VideoFilterFactoryDemo.FilterType filterType) {
+    public static void actionStart(Activity activity, String roomID, String streamId, VideoFilterFactoryDemo.FilterType filterType) {
         Intent intent = new Intent(activity, FUBeautyActivity.class);
         intent.putExtra("roomID",roomID);
         intent.putExtra("FilterType", filterType);
-        intent.putExtra("userID",userID);
+        intent.putExtra("streamID", streamId);
         activity.startActivity(intent);
     }
 
@@ -183,8 +169,6 @@ public class FUBeautyActivity extends AppCompatActivity implements FURenderer.On
     private void initSDK() {
         AppLogger.getInstance().i(VideoFilterMainUI.class, "初始化ZEGO SDK");
 
-        // 设置用户
-        ZGFilterHelper.sharedInstance().getZegoLiveRoom().setUser(mUserID,mUserID+"userName");
 
         /**
          * 需要在 initSDK 之前设置 SDK 环境，此处设置为测试环境；
@@ -222,7 +206,7 @@ public class FUBeautyActivity extends AppCompatActivity implements FURenderer.On
         AppLogger.getInstance().i(FUBeautyActivity.class, getString(R.string.tx_login_room));
 
         // 开始推流前需要先登录房间，此处是主播登录房间，成功登录后开始推流
-        ZGFilterHelper.sharedInstance().getZegoLiveRoom().loginRoom("skin_left", ZegoConstants.RoomRole.Anchor, new IZegoLoginCompletionCallback() {
+        ZGFilterHelper.sharedInstance().getZegoLiveRoom().loginRoom(mRoomID, ZegoConstants.RoomRole.Anchor, new IZegoLoginCompletionCallback() {
             @Override
             public void onLoginCompletion(int errorCode, ZegoStreamInfo[] zegoStreamInfos) {
                 CustomDialog.createDialog(FUBeautyActivity.this).cancel();
@@ -236,11 +220,18 @@ public class FUBeautyActivity extends AppCompatActivity implements FURenderer.On
                     ZGFilterHelper.sharedInstance().getZegoLiveRoom().setPreviewViewMode(ZegoVideoViewMode.ScaleAspectFill);
                     // 设置预览 view，主播自己推流采用全屏视图
                     ZGFilterHelper.sharedInstance().getZegoLiveRoom().setPreviewView(binding.preview);
+                    boolean frontCamera = true;
+                    ZGFilterHelper.sharedInstance().getZegoLiveRoom().setFrontCam(frontCamera);
+                    if (frontCamera) {
+                        ZGFilterHelper.sharedInstance().getZegoLiveRoom().setVideoMirrorMode(ZegoConstants.ZegoVideoMirrorMode.VIDEO_MIRROR_MODE_PREVIEW_PUBLISH_BOTH_MIRROR, ZegoConstants.PublishChannelIndex.MAIN);
+                    } else {
+                        ZGFilterHelper.sharedInstance().getZegoLiveRoom().setVideoMirrorMode(ZegoConstants.ZegoVideoMirrorMode.VIDEO_MIRROR_MODE_PREVIEW_PUBLISH_BOTH_NO_MIRROR, ZegoConstants.PublishChannelIndex.MAIN);
+                    }
                     // 启动预览
                     ZGFilterHelper.sharedInstance().getZegoLiveRoom().startPreview();
 
                     // 开始推流，flag 使用连麦场景，推荐场景
-                    ZGFilterHelper.sharedInstance().getZegoLiveRoom().startPublishing(anchorStreamID, "anchor", ZegoConstants.PublishFlag.JoinPublish);
+                    ZGFilterHelper.sharedInstance().getZegoLiveRoom().startPublishing(streamId, "anchor", ZegoConstants.PublishFlag.JoinPublish);
 
                 } else {
                     AppLogger.getInstance().i(FUBeautyActivity.class, "登录房间失败, errorCode : %d", errorCode);
@@ -248,6 +239,16 @@ public class FUBeautyActivity extends AppCompatActivity implements FURenderer.On
                 }
             }
         });
+    }
+
+    boolean checkAndRequestPermission(int requestCode) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
+                requestPermissions(new String[]{Manifest.permission.CAMERA}, requestCode);
+                return false;
+            }
+        }
+        return true;
     }
 
     // 设置 SDK 推流回调监听

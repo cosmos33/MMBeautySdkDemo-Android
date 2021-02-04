@@ -6,8 +6,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation project(path: ':base')
     implementation "com.cosmos.mediax:beautysdk_interact:$VERSION_NAME"
+//    api project(":beautysdk")
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "androidx.appcompat:appcompat:$appcompat"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation "com.github.fanflame:libutil:1.0.10"
 }

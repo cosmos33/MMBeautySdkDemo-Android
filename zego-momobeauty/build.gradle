@@ -47,13 +47,14 @@ dependencies {
 //    implementation 'com.android.support:appcompat-v7:28.0.0'
 //    implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "androidx.appcompat:appcompat:$appcompat"
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation project(path: ':zego-common')
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     // cosmos美颜
-    api "com.cosmos.mediax:beautysdk_interact:1.3.0_11191219"
+    api "com.cosmos.mediax:beautysdk_interact:$VERSION_NAME"
+//    api project(":beautysdk")
     api "com.cosmos.mediax:beautyutils:$beautyutils"
     implementation project(path: ':base')
 

@@ -2,12 +2,9 @@ package com.zego.videofilter.ui;
 
 import android.app.Activity;
 import android.content.Intent;
-//import android.databinding.DataBindingUtil;
-//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -19,6 +16,9 @@ import com.zego.videofilter.databinding.ActivityVideoFilterMainBinding;
 import com.zego.videofilter.faceunity.FURenderer;
 import com.zego.videofilter.faceunity.authpack;
 import com.zego.videofilter.videoFilter.VideoFilterFactoryDemo;
+
+//import android.databinding.DataBindingUtil;
+//import android.support.v7.app.AppCompatActivity;
 
 public class VideoFilterMainUI extends AppCompatActivity implements View.OnClickListener {
 
@@ -123,10 +123,10 @@ public class VideoFilterMainUI extends AppCompatActivity implements View.OnClick
 
     public void onClickLoginRoomAndPublish(View view) {
         String roomID = binding.edRoomId.getText().toString();
-        String userID = binding.edUserId.getText().toString();
+        String streamID = binding.edStreamId.getText().toString();
         if (!"".equals(roomID)) {
             // 跳转到创建并登录房间的页面
-            FUBeautyActivity.actionStart(VideoFilterMainUI.this, roomID, userID,mFilterType);
+            FUBeautyActivity.actionStart(VideoFilterMainUI.this, roomID, streamID, mFilterType);
         } else {
             Toast.makeText(VideoFilterMainUI.this, getString(com.zego.common.R.string.tx_room_id_is_no_null), Toast.LENGTH_SHORT).show();
             AppLogger.getInstance().i(VideoFilterMainUI.class, getString(com.zego.common.R.string.tx_room_id_is_no_null));

@@ -178,19 +178,6 @@
             </LinearLayout>
 
             <com.zego.common.widgets.CustomEditText
-                android:id="@+id/ed_user_id"
-                app:key="room_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="40dp"
-                android:background="@color/white_color"
-                android:hint="请输入用户ID"
-                android:padding="8dp"
-                android:textSize="14sp" />
-
-            <com.zego.common.widgets.CustomEditText
                 android:id="@+id/ed_room_id"
                 app:key="room_id"
                 android:layout_width="match_parent"
@@ -200,6 +187,19 @@
                 android:layout_marginRight="40dp"
                 android:background="@color/white_color"
                 android:hint="请输入roomID"
+                android:padding="8dp"
+                android:textSize="14sp" />
+
+            <com.zego.common.widgets.CustomEditText
+                android:id="@+id/ed_stream_id"
+                app:key="room_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                android:background="@color/white_color"
+                android:hint="请输入streamID"
                 android:padding="8dp"
                 android:textSize="14sp" />
 

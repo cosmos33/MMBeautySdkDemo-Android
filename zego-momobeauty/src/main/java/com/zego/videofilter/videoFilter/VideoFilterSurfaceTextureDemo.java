@@ -1,7 +1,5 @@
 package com.zego.videofilter.videoFilter;
 
-import android.app.Application;
-import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
@@ -10,32 +8,13 @@ import android.os.HandlerThread;
 import android.util.Log;
 import android.view.Surface;
 
-import com.core.glcore.cv.MMCVInfo;
-import com.core.glcore.util.ImageFrame;
 import com.cosmos.appbase.TransOesTexture;
-import com.cosmos.beauty.CosmosBeautySDK;
-import com.cosmos.beauty.inter.OnAuthenticationStateListener;
-import com.cosmos.beauty.inter.OnBeautyResourcePreparedListener;
-import com.cosmos.beauty.model.AuthResult;
-import com.cosmos.beauty.model.BeautySDKInitConfig;
-import com.cosmos.beauty.model.MMRenderFrameParams;
-import com.cosmos.beauty.model.datamode.CameraDataMode;
-import com.cosmos.beauty.model.datamode.CommonDataMode;
-import com.cosmos.beauty.module.IMMRenderModuleManager;
-import com.cosmos.beauty.module.sticker.DetectRect;
-import com.cosmos.beautyutils.Empty2Filter;
-import com.cosmos.beautyutils.FaceInfoCreatorPBOFilter;
-import com.cosmos.beautyutils.RotateFilter;
 import com.zego.videofilter.ZegoBeautyManager;
-import com.zego.videofilter.faceunity.FURenderer;
 import com.zego.videofilter.videoFilter.ve_gl.EglBase;
 import com.zego.videofilter.videoFilter.ve_gl.EglBase14;
 import com.zego.videofilter.videoFilter.ve_gl.GlRectDrawer;
 import com.zego.videofilter.videoFilter.ve_gl.GlUtil;
 import com.zego.zegoavkit2.videofilter.ZegoVideoFilter;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.nio.ByteBuffer;
 import java.util.concurrent.CountDownLatch;
@@ -127,7 +106,7 @@ public class VideoFilterSurfaceTextureDemo extends ZegoVideoFilter implements Su
      */
     @Override
     protected void stopAndDeAllocate() {
-
+        zegoBeautyManager.stopOrientationCallback();
         final CountDownLatch barrier = new CountDownLatch(1);
         mHandler.post(new Runnable() {
             @Override
@@ -237,14 +216,14 @@ public class VideoFilterSurfaceTextureDemo extends ZegoVideoFilter implements Su
             mDrawer = new GlRectDrawer();
         }
         // 调用 faceunity 进行美颜，美颜后返回纹理 ID
-        int textureID = zegoBeautyManager.renderWithOESTexture(mInputTextureId,mOutputWidth,mOutputHeight,true,90);
+        int textureID = zegoBeautyManager.renderWithOESTexture(mInputTextureId, mOutputWidth, mOutputHeight, true, 0);
 
 //        Log.e("zego","cosmos美颜前:"+mInputTextureId+" 美颜后:"+textureID);
         GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
 
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
         // 绘制美颜数据
-        mDrawer.drawOes(textureID, transformationMatrix,
+        mDrawer.drawRgb(textureID, transformationMatrix,
                 mOutputWidth, mOutputHeight, 0, 0, mOutputWidth, mOutputHeight);
 
         if (mIsEgl14) {
@@ -275,7 +254,6 @@ public class VideoFilterSurfaceTextureDemo extends ZegoVideoFilter implements Su
             // 销毁 faceunity 相关的资源
 //            mFuRender.onSurfaceDestroyed();
             Log.e("zego","释放资源");
-            zegoBeautyManager.textureDestoryed();
             mEglContext.releaseSurface();
             mEglContext.detachCurrent();
         }

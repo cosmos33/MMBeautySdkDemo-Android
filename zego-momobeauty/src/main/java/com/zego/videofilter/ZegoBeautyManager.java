@@ -1,8 +1,6 @@
 package com.zego.videofilter;
 
 import android.content.Context;
-import android.opengl.GLES20;
-import android.util.Log;
 
 import com.core.glcore.util.ImageFrame;
 import com.cosmos.appbase.BeautyManager;
@@ -12,14 +10,25 @@ import com.cosmos.beauty.model.datamode.CommonDataMode;
 import com.cosmos.beautyutils.Empty2Filter;
 import com.cosmos.beautyutils.FaceInfoCreatorPBOFilter;
 import com.cosmos.beautyutils.RotateFilter;
+import com.mm.mmutil.app.AppContext;
+import com.zego.videofilter.orientation.BeautySdkOrientationSwitchListener;
+import com.zego.videofilter.orientation.ScreenOrientationManager;
 
 public class ZegoBeautyManager extends BeautyManager {
     private TransOesTexture transOesTexture;
     private RotateFilter rotateFilter;
     private RotateFilter revertRotateFilter;
+    private BeautySdkOrientationSwitchListener orientationListener;
 
     public ZegoBeautyManager(Context context, String appId) {
         super(context, appId);
+        orientationListener = new BeautySdkOrientationSwitchListener();
+        ScreenOrientationManager screenOrientationManager =
+                ScreenOrientationManager.getInstance(AppContext.getContext());
+        screenOrientationManager.setAngleChangedListener(orientationListener);
+        if (!screenOrientationManager.isListening()) {
+            screenOrientationManager.start();
+        }
     }
 
     @Override
@@ -29,10 +38,6 @@ public class ZegoBeautyManager extends BeautyManager {
         }
         int tempWidth = texWidth;
         int tempHeight = texHeight;
-        if (cameraRotation == 90 || cameraRotation == 270) {
-            tempHeight = texWidth;
-            tempWidth = texHeight;
-        }
         return renderWithTexture(transOesTexture.newTextureReady(texture, texWidth, texHeight), tempWidth, tempHeight, mFrontCamera);
     }
 
@@ -40,14 +45,18 @@ public class ZegoBeautyManager extends BeautyManager {
     public int renderWithTexture(int texture, int texWidth, int texHeight, boolean mFrontCamera) {
         if (resourceReady) {
             if (faceInfoCreatorPBOFilter == null) {
-                rotateFilter = new RotateFilter(RotateFilter.ROTATE_90);
-                revertRotateFilter = new RotateFilter(RotateFilter.ROTATE_270);
+                rotateFilter = new RotateFilter(RotateFilter.ROTATE_VERTICAL);
+                revertRotateFilter = new RotateFilter(RotateFilter.ROTATE_VERTICAL);
                 faceInfoCreatorPBOFilter = new FaceInfoCreatorPBOFilter(texWidth, texHeight);
                 emptyFilter = new Empty2Filter();
                 emptyFilter.setWidth(texWidth);
                 emptyFilter.setHeight(texHeight);
             }
-            int rotateTexture = rotateFilter.rotateTexture(texture, texWidth, texHeight);
+            float currentAngle = orientationListener.getCurrentAngle();
+            int rotateTexture = texture;
+            if (currentAngle == 0) {
+                rotateTexture = rotateFilter.rotateTexture(texture, texWidth, texHeight);
+            }
             faceInfoCreatorPBOFilter.newTextureReady(rotateTexture, emptyFilter, true);
 
             if (faceInfoCreatorPBOFilter.byteBuffer != null) {
@@ -55,8 +64,7 @@ public class ZegoBeautyManager extends BeautyManager {
                 faceInfoCreatorPBOFilter.byteBuffer.get(frameData);
                 //美颜sdk处理
                 CommonDataMode dataMode = new CommonDataMode();
-                dataMode.setNeedFlip(mFrontCamera);
-
+                dataMode.setNeedFlip(false);
                 int beautyTexture = renderModuleManager.renderFrame(rotateTexture, new MMRenderFrameParams(
                         dataMode,
                         frameData,
@@ -66,12 +74,23 @@ public class ZegoBeautyManager extends BeautyManager {
                         texHeight,
                         ImageFrame.MMFormat.FMT_RGBA
                 ));
+                if (currentAngle != 0) {
+                    return beautyTexture;
+                }
                 return revertRotateFilter.rotateTexture(beautyTexture, texWidth, texHeight);
             }
         }
         return texture;
     }
 
+    public void stopOrientationCallback() {
+        ScreenOrientationManager screenOrientationManager =
+                ScreenOrientationManager.getInstance(AppContext.getContext());
+        if (screenOrientationManager.isListening()) {
+            screenOrientationManager.stop();
+        }
+        ScreenOrientationManager.release();
+    }
     @Override
     public void textureDestoryed() {
         super.textureDestoryed();

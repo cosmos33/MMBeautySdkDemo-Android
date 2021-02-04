@@ -18,10 +18,10 @@ android {
 
     signingConfigs {
         config {
-            keyAlias 'cosmos'
-            keyPassword 'mmtest'
-            storeFile file('../keystore')
-            storePassword 'mmtest'
+            keyAlias ''
+            keyPassword ''
+            storeFile file('')
+            storePassword ''
             v2SigningEnabled true   // android 5.0-8.0，必须用V2，否则会有安全问题
             v1SigningEnabled true
         }

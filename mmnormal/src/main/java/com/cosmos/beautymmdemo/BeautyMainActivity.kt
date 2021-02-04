@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.CheckBox
 import android.widget.FrameLayout
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.core.glcore.cv.MMCVInfo
 import com.cosmos.appbase.listener.OnFilterResourcePrepareListener
 import com.cosmos.appbase.utils.FilterUtils
@@ -29,7 +29,7 @@ import com.cosmos.beautymmdemo.fragment.filter.LookupFragment
 import com.cosmos.beautymmdemo.fragment.sticker.StickerFragment
 import com.mm.mmutil.toast.Toaster
 
-class BeautyMainActivity : AppCompatActivity(),
+class BeautyMainActivity : FragmentActivity(),
     IMMRenderModuleManager.CVModelStatusListener, IMMRenderModuleManager.IDetectGestureCallback,
     IMMRenderModuleManager.IDetectFaceCallback {
     private val TAG = "MainActivity_Detect"

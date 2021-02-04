@@ -16,6 +16,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -42,7 +46,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "androidx.appcompat:appcompat:$appcompat"
     implementation 'androidx.core:core-ktx:1.3.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'com.cosmos.rifle:core:2.1.5'
@@ -52,6 +56,8 @@ dependencies {
     implementation project(path:":tx")
     implementation project(path:":mmnormal")
     implementation project(path:":agora")
+    implementation project(path:":zego-common")
+    implementation project(path:":zego-momobeauty")
 }
 
 apply plugin: 'rifle.plugin'

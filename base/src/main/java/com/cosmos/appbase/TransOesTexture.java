@@ -1,5 +1,8 @@
 package com.cosmos.appbase;
 
+import android.opengl.GLES11Ext;
+import android.opengl.GLES20;
+
 import project.android.imageprocessing.GLRenderer;
 import project.android.imageprocessing.filter.BasicFilter;
 
@@ -22,5 +25,19 @@ public class TransOesTexture extends BasicFilter {
         setHeight(height);
         onDrawFrame();
         return getTextOutID();
+    }
+
+    @Override
+    protected void passShaderValues() {
+        renderVertices.position(0);
+        GLES20.glVertexAttribPointer(positionHandle, 2, GLES20.GL_FLOAT, false, 8, renderVertices);
+        GLES20.glEnableVertexAttribArray(positionHandle);
+        textureVertices[curRotation].position(0);
+        GLES20.glVertexAttribPointer(texCoordHandle, 2, GLES20.GL_FLOAT, false, 8, textureVertices[curRotation]);
+        GLES20.glEnableVertexAttribArray(texCoordHandle);
+
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+        GLES20.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES, texture_in);
+        GLES20.glUniform1i(textureHandle, 0);
     }
 }
