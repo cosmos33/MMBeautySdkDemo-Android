@@ -44,7 +44,7 @@ abstract public class BeautyManager implements IMMRenderModuleManager.CVModelSta
     protected String appId;
     protected FaceInfoCreatorPBOFilter faceInfoCreatorPBOFilter;
     protected Empty2Filter emptyFilter;
-    protected TransOesTexture transOesTexture;
+    protected TransOesTextureFilter transOesTextureFilter;
 
     public BeautyManager(Context context, String appId) {
         this.context = context.getApplicationContext();
@@ -57,9 +57,9 @@ abstract public class BeautyManager implements IMMRenderModuleManager.CVModelSta
     abstract public int renderWithTexture(int texture, int texWidth, int texHeight, boolean mFrontCamera);
 
     public void textureDestoryed() {
-        if (transOesTexture != null) {
-            transOesTexture.destroy();
-            transOesTexture = null;
+        if (transOesTextureFilter != null) {
+            transOesTextureFilter.destroy();
+            transOesTextureFilter = null;
         }
         if (faceInfoCreatorPBOFilter != null) {
             faceInfoCreatorPBOFilter.destroy();
@@ -94,7 +94,7 @@ abstract public class BeautyManager implements IMMRenderModuleManager.CVModelSta
             public void onResult(AuthResult result) {
                 if (!result.isSucceed()) {
                     Toaster.show(String.format("授权失败:%s", result.getMsg()));
-//                } else {
+                } else {
                     MainThreadExecutor.post(new Runnable() {
                         @Override
                         public void run() {

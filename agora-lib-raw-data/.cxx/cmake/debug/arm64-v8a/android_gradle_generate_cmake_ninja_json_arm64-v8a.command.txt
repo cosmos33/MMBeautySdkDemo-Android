@@ -6,9 +6,9 @@ arguments :
 -DANDROID_PLATFORM=android-19
 -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/build/intermediates/cmake/debug/obj/arm64-v8a
 -DCMAKE_BUILD_TYPE=Debug
--DANDROID_NDK=/Users/momo/Library/Android/sdk/ndk/20.0.5594570
+-DANDROID_NDK=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c
 -DCMAKE_CXX_FLAGS=-std=c++11
--DCMAKE_TOOLCHAIN_FILE=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/build/cmake/android.toolchain.cmake
+-DCMAKE_TOOLCHAIN_FILE=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/build/cmake/android.toolchain.cmake
 -DCMAKE_MAKE_PROGRAM=/Users/momo/Library/Android/sdk/cmake/3.6.4111459/bin/ninja
 -GAndroid Gradle - Ninja
 -DANDROID_STL=c++_static

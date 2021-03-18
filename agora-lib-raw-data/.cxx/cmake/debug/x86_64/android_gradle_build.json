@@ -21,21 +21,21 @@
 			[
 				
 				{
-					"flags" : "  --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dapm_plugin_raw_data_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -std=c++11 -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"flags" : "  --target=x86_64-none-linux-android --gcc-toolchain=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/toolchains/x86_64-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/sysroot  -Dapm_plugin_raw_data_EXPORTS -isystem /Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/sources/cxx-stl/llvm-libc++/include -isystem /Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/sources/android/support/include -isystem /Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/sources/cxx-stl/llvm-libc++abi/include  -isystem /Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/sysroot/usr/include/x86_64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11 -std=c++11 -O0 -fno-limit-debug-info  -fPIC    -c ",
 					"src" : "/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/src/main/cpp/io_agora_advancedvideo_rawdata_MediaPreProcessing.cpp",
 					"workingDirectory" : "/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/.cxx/cmake/debug/x86_64"
 				}
 			],
 			"output" : "/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/build/intermediates/cmake/debug/obj/x86_64/libapm-plugin-raw-data.so",
-			"toolchain" : "7779243642263699954"
+			"toolchain" : "15378051420439934764"
 		}
 	},
 	"toolchains" : 
 	{
-		"7779243642263699954" : 
+		"15378051420439934764" : 
 		{
-			"cCompilerExecutable" : "/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang",
-			"cppCompilerExecutable" : "/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+			"cCompilerExecutable" : "/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
 		}
 	}
 }

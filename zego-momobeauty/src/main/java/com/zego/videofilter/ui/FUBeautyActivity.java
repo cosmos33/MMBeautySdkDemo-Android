@@ -92,7 +92,7 @@ public class FUBeautyActivity extends AppCompatActivity implements FURenderer.On
 //                .setOnTrackingStatusChangedListener(this)
 //                .build();
 
-        zegoBeautyManager = new ZegoBeautyManager(this,"b8b858e04e411665e20cf1145544d71c");
+        zegoBeautyManager = new ZegoBeautyManager(this,ZegoApplication.cosmosID);
 
         mBottomViewStub.setLayoutResource(R.layout.layout_fu_beauty);
         mBottomViewStub.inflate();

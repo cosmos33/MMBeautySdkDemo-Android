@@ -13,8 +13,8 @@
       "buildSystem": "CMAKE",
       "compilerSettingsCacheFolder": "/Users/momo/Documents/android/momosdk/beauty-sdk/.cxx",
       "cxxFolder": "/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/.cxx",
-      "ndkFolder": "/Users/momo/Library/Android/sdk/ndk/20.0.5594570",
-      "ndkVersion": "20.0.5594570",
+      "ndkFolder": "/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c",
+      "ndkVersion": "17.2.4988734",
       "ndkSupportedAbiList": [
         "ARMEABI_V7A",
         "ARM64_V8A",

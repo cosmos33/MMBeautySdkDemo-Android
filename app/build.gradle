@@ -56,8 +56,12 @@ dependencies {
     implementation project(path:":tx")
     implementation project(path:":mmnormal")
     implementation project(path:":agora")
-    implementation project(path:":zego-common")
-    implementation project(path:":zego-momobeauty")
+    if (gradle.useZegoNewSdk) {
+        implementation project(path: ":zego-express-CustomVideoRender")
+    } else {
+        implementation project(path:":zego-common")
+        implementation project(path:":zego-momobeauty")
+    }
 }
 
 apply plugin: 'rifle.plugin'

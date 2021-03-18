@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.core.glcore.util.ImageFrame;
 import com.cosmos.appbase.BeautyManager;
-import com.cosmos.appbase.TransOesTexture;
+import com.cosmos.appbase.TransOesTextureFilter;
 import com.cosmos.beauty.model.MMRenderFrameParams;
 import com.cosmos.beauty.model.datamode.CommonDataMode;
 import com.cosmos.beautyutils.Empty2Filter;
@@ -12,7 +12,7 @@ import com.cosmos.beautyutils.FaceInfoCreatorPBOFilter;
 import com.cosmos.beautyutils.RotateFilter;
 
 public class AgoraBeautyManager extends BeautyManager {
-    private TransOesTexture transOesTexture;
+    private TransOesTextureFilter transOesTextureFilter;
     private RotateFilter rotateFilter;
     private RotateFilter revertRotateFilter;
 
@@ -22,8 +22,8 @@ public class AgoraBeautyManager extends BeautyManager {
 
     @Override
     public int renderWithOESTexture(int texture, int texWidth, int texHeight, boolean mFrontCamera, int cameraRotation) {
-        if (transOesTexture == null) {
-            transOesTexture = new TransOesTexture();
+        if (transOesTextureFilter == null) {
+            transOesTextureFilter = new TransOesTextureFilter();
         }
         int tempWidth = texWidth;
         int tempHeight = texHeight;
@@ -31,7 +31,7 @@ public class AgoraBeautyManager extends BeautyManager {
             tempHeight = texWidth;
             tempWidth = texHeight;
         }
-        return renderWithTexture(transOesTexture.newTextureReady(texture, texWidth, texHeight), tempWidth, tempHeight, mFrontCamera);
+        return renderWithTexture(transOesTextureFilter.newTextureReady(texture, texWidth, texHeight), tempWidth, tempHeight, mFrontCamera);
     }
 
     @Override

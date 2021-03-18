@@ -21,7 +21,7 @@ ANDROID_ABI:UNINITIALIZED=x86_64
 ANDROID_ARM_NEON:UNINITIALIZED=TRUE
 
 //No help, variable specified on the command line.
-ANDROID_NDK:UNINITIALIZED=/Users/momo/Library/Android/sdk/ndk/20.0.5594570
+ANDROID_NDK:UNINITIALIZED=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c
 
 //No help, variable specified on the command line.
 ANDROID_PLATFORM:UNINITIALIZED=android-15
@@ -36,7 +36,7 @@ ANDROID_STL_FORCE_FEATURES:UNINITIALIZED=OFF
 ANDROID_TOOLCHAIN:UNINITIALIZED=clang
 
 //Archiver
-CMAKE_AR:FILEPATH=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/x86_64-linux-android-ar
+CMAKE_AR:FILEPATH=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/toolchains/x86_64-4.9/prebuilt/darwin-x86_64/bin/x86_64-linux-android-ar
 
 //Flags used by the compiler during all build types.
 CMAKE_ASM_FLAGS:STRING=
@@ -68,7 +68,7 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Libraries linked by default with all C++ applications.
-CMAKE_CXX_STANDARD_LIBRARIES:STRING=-latomic -lm
+CMAKE_CXX_STANDARD_LIBRARIES:STRING=-latomic -lm "/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/sources/cxx-stl/llvm-libc++/libs/x86_64/libc++_static.a" "/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/sources/cxx-stl/llvm-libc++/libs/x86_64/libc++abi.a"
 
 //Flags used by the compiler during all build types.
 CMAKE_C_FLAGS:STRING=
@@ -114,7 +114,7 @@ CMAKE_INSTALL_PREFIX:PATH=/usr/local
 CMAKE_LIBRARY_OUTPUT_DIRECTORY:UNINITIALIZED=/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data/build/intermediates/cmake/debug/obj/x86_64
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/x86_64-linux-android-ld
+CMAKE_LINKER:FILEPATH=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/toolchains/x86_64-4.9/prebuilt/darwin-x86_64/bin/x86_64-linux-android-ld
 
 //No help, variable specified on the command line.
 CMAKE_MAKE_PROGRAM:UNINITIALIZED=/Users/momo/Library/Android/sdk/cmake/3.6.4111459/bin/ninja
@@ -135,19 +135,19 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_NM:FILEPATH=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/x86_64-linux-android-nm
+CMAKE_NM:FILEPATH=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/toolchains/x86_64-4.9/prebuilt/darwin-x86_64/bin/x86_64-linux-android-nm
 
 //Path to a program.
-CMAKE_OBJCOPY:FILEPATH=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/x86_64-linux-android-objcopy
+CMAKE_OBJCOPY:FILEPATH=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/toolchains/x86_64-4.9/prebuilt/darwin-x86_64/bin/x86_64-linux-android-objcopy
 
 //Path to a program.
-CMAKE_OBJDUMP:FILEPATH=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/x86_64-linux-android-objdump
+CMAKE_OBJDUMP:FILEPATH=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/toolchains/x86_64-4.9/prebuilt/darwin-x86_64/bin/x86_64-linux-android-objdump
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=Project
 
 //Ranlib
-CMAKE_RANLIB:FILEPATH=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/x86_64-linux-android-ranlib
+CMAKE_RANLIB:FILEPATH=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/toolchains/x86_64-4.9/prebuilt/darwin-x86_64/bin/x86_64-linux-android-ranlib
 
 //Flags used by the linker during the creation of dll's.
 CMAKE_SHARED_LINKER_FLAGS:STRING=
@@ -187,10 +187,10 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_STRIP:FILEPATH=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/x86_64-linux-android-strip
+CMAKE_STRIP:FILEPATH=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/toolchains/x86_64-4.9/prebuilt/darwin-x86_64/bin/x86_64-linux-android-strip
 
 //The CMake toolchain file
-CMAKE_TOOLCHAIN_FILE:FILEPATH=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/build/cmake/android.toolchain.cmake
+CMAKE_TOOLCHAIN_FILE:FILEPATH=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/build/cmake/android.toolchain.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -205,10 +205,10 @@ Project_BINARY_DIR:STATIC=/Users/momo/Documents/android/momosdk/beauty-sdk/agora
 Project_SOURCE_DIR:STATIC=/Users/momo/Documents/android/momosdk/beauty-sdk/agora-lib-raw-data
 
 //Dependencies for the target
-apm-plugin-raw-data_LIB_DEPENDS:STATIC=general;/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/x86_64-linux-android/21/liblog.so;
+apm-plugin-raw-data_LIB_DEPENDS:STATIC=general;/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/platforms/android-21/arch-x86_64/usr/lib64/liblog.so;
 
 //Path to a library.
-log-lib:FILEPATH=/Users/momo/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/x86_64-linux-android/21/liblog.so
+log-lib:FILEPATH=/Users/momo/Library/Android/sdk/ndk/android-ndk-r17c/platforms/android-21/arch-x86_64/usr/lib64/liblog.so
 
 
 ########################

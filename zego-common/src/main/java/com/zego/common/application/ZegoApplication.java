@@ -17,8 +17,10 @@ import java.util.Date;
 public class ZegoApplication  {
 
     public static Application zegoApplication;
+    public static String cosmosID;
 
-    public static void onCreate(Context context){
+    public static void onCreate(Context context,String cosmosId){
+        cosmosID = cosmosId;
         zegoApplication = (Application) context;
         String randomSuffix = "-" + new Date().getTime() % (new Date().getTime() / 1000);
 //

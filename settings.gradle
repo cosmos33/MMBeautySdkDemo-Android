@@ -1,6 +1,16 @@
 rootProject.name='BeautySDK'
-include ':qiniu', ':tx', ':agora-lib-push-externalvideo', ':agora-lib-stream-encrypt', ':agora-lib-component', ':agora', ':agora-lib-raw-data', ':agora-lib-switch-external-video',':zego-common',':zego-momobeauty'
+gradle.ext.useZegoNewSdk = true  //是否使用新版即构sdk
+include ':qiniu', ':tx', ':agora-lib-push-externalvideo', ':agora-lib-stream-encrypt', ':agora-lib-component', ':agora', ':agora-lib-raw-data', ':agora-lib-switch-external-video'
 include ':mmnormal'
+if (gradle.useZegoNewSdk) {
+    //即构新版sdk
+    include ':zego-express-common'
+    include ':zego-express-CustomVideoRender'
+} else {
+    //即构旧版sdk
+    include ':zego-common'
+    include ':zego-momobeauty'
+}
 
 include ':base'
 include ':app'
