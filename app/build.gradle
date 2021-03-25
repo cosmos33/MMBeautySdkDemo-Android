@@ -63,15 +63,3 @@ dependencies {
         implementation project(path:":zego-momobeauty")
     }
 }
-
-apply plugin: 'rifle.plugin'
-rifleConfig {
-    appId = "6b38bc8e6afdbd040b8f6386b65c0aac"          // 管理后台申请的应用APPID
-    appKey = "dbb95879b283f5d591e0ac5ce4401fe5"         // 管理后台申请的应用APPKEY
-    versionName = android.defaultConfig.versionName     // 当前应用的版本名称
-    // enable = true                      // 打开/关闭插件（默认为true）
-    // symbolsDir = "src/main/obj"        // 带符号表SO文件所在目录（默认为"src/main/obj"）
-    // enableSymbolsUpload = true         // 打开/关闭提交带符号表SO的功能（默认为true）
-    // waitingSymbolsUpload = true      // 打包完成后需要确认符号表文件是否提交完成，未完成需要等待提交完成。默认true
-}
-
