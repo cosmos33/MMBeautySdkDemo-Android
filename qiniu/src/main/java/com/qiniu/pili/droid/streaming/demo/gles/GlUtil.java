@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
+import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -16,9 +18,7 @@ import java.nio.FloatBuffer;
 
 public class GlUtil {
     private static final String TAG = "GlDemoUtil";
-    /**
-     * Identity matrix for general use.  Don't modify or life will get weird.
-     */
+    /** Identity matrix for general use.  Don't modify or life will get weird. */
 
     public static final int NO_TEXTURE = -1;
 
@@ -27,8 +27,8 @@ public class GlUtil {
     private GlUtil() { // do not instantiate
     }
 
-    public static int createProgram(Context applicationContext, int vertexSourceRawId,
-                                    int fragmentSourceRawId) {
+    public static int createProgram(Context applicationContext, @RawRes int vertexSourceRawId,
+                                    @RawRes int fragmentSourceRawId) {
 
         String vertexSource = readTextFromRawResource(applicationContext, vertexSourceRawId);
         String fragmentSource = readTextFromRawResource(applicationContext, fragmentSourceRawId);
@@ -69,7 +69,7 @@ public class GlUtil {
 
     public static int loadShader(int shaderType, String source) {
         int shader = GLES20.glCreateShader(shaderType);
-//        checkGlError("glCreateShader type=" + shaderType);
+        checkGlError("glCreateShader type=" + shaderType);
         GLES20.glShaderSource(shader, source);
         GLES20.glCompileShader(shader);
         int[] compiled = new int[1];
@@ -83,7 +83,7 @@ public class GlUtil {
         return shader;
     }
 
-    public static int createTexture(int textureTarget, Bitmap bitmap, int minFilter,
+    public static int createTexture(int textureTarget, @Nullable Bitmap bitmap, int minFilter,
                                     int magFilter, int wrapS, int wrapT) {
         int[] textureHandle = new int[1];
 
@@ -122,7 +122,7 @@ public class GlUtil {
         if (error != GLES20.GL_NO_ERROR) {
             String msg = op + ": glError 0x" + Integer.toHexString(error);
             Log.e(TAG, msg);
-//            throw new RuntimeException(msg);
+            throw new RuntimeException(msg);
         }
     }
 
@@ -139,7 +139,8 @@ public class GlUtil {
         return fb;
     }
 
-    public static String readTextFromRawResource(final Context applicationContext, final int resourceId) {
+    public static String readTextFromRawResource(final Context applicationContext,
+                                                 @RawRes final int resourceId) {
         final InputStream inputStream =
                 applicationContext.getResources().openRawResource(resourceId);
         final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);

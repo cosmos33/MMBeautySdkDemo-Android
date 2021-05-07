@@ -16,3 +16,5 @@ app/maindexlist.txt
 core/build
 core/build/*
 /agora-lib-raw-data/.cxx/
+*/.cxx
+.cxx

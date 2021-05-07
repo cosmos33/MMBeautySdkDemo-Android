@@ -46,3 +46,4 @@ native <methods>;
 -keep class com.momo.mcamera.** {*;}
 -dontwarn com.momo.mcamera.mask.**
 -keep class com.google.gson.** {*;}
+-keep class com.qiniu.pili.droid.streaming.** { *; }

@@ -7,8 +7,9 @@ import android.content.Intent;
 import com.qiniu.pili.droid.streaming.StreamingEnv;
 import com.qiniu.pili.droid.streaming.demo.service.KeepAppAliveService;
 import com.qiniu.pili.droid.streaming.demo.utils.AppStateTracker;
+import com.qiniu.pili.droid.streaming.demo.utils.Util;
 
-public class StreamingApplication {
+public class StreamingApplication extends Application {
 
     private boolean mIsServiceAlive;
     private Intent mServiceIntent;
@@ -29,7 +30,7 @@ public class StreamingApplication {
         /**
          * init must be called before any other func
          */
-        StreamingEnv.init(context);
+        StreamingEnv.init(context, Util.getUserId(context));
 
         /**
          * track app background state to avoid possibly stopping microphone recording

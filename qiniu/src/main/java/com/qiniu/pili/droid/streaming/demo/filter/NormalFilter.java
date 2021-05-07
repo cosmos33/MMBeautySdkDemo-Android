@@ -46,13 +46,12 @@ public class NormalFilter extends AbstractFilter implements IFilter {
 
     @Override
     protected int createProgram(Context applicationContext) {
-        return GlUtil.createProgram(applicationContext, R.raw.vertex_shader,
-                R.raw.fragment_normal);
+        return GlUtil.createProgram(applicationContext, R.raw.vertex_shader, R.raw.fragment_normal);
     }
 
     @Override
     protected void getGLSLValues() {
-        mTextureLoc = GLES20.glGetUniformLocation(mProgramHandle, "inputexture");
+        mTextureLoc = GLES20.glGetUniformLocation(mProgramHandle, "inputTexture");
         maPositionLoc = GLES20.glGetAttribLocation(mProgramHandle, "aPosition");
         muMVPMatrixLoc = GLES20.glGetUniformLocation(mProgramHandle, "uMVPMatrix");
         maTextureCoordLoc = GLES20.glGetAttribLocation(mProgramHandle, "aTextureCoord");

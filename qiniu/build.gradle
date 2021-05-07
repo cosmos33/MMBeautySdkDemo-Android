@@ -2,11 +2,12 @@ apply from: '../lib.gradle'
 
 dependencies {
     implementation 'com.github.angads25:filepicker:1.0.6'
-    implementation 'com.qiniu:happy-dns:0.2.8'
+    implementation 'com.qiniu:happy-dns:0.2.17'
     implementation 'com.journeyapps:zxing-android-embedded:3.0.2@aar'
-    implementation 'com.google.zxing:core:3.2.0'
-    implementation files('libs/pldroid-media-streaming-3.0.0.jar')
-    implementation "com.cosmos.mediax:beautysdk_interact:$VERSION_NAME"
-    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation 'com.google.zxing:core:3.3.3'
+    implementation files('libs/pldroid-media-streaming-3.0.2.jar')
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation "androidx.annotation:annotation:1.1.0"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "com.cosmos.mediax:beautysdk_interact:$VERSION_NAME"
 }

@@ -171,7 +171,7 @@ public final class ExtVideoCapture implements SurfaceHolder.Callback, Camera.Pre
 
     private static int getDeviceRotationDegree(Context ctx) {
         switch (getDisplayDefaultRotation(ctx)) {
-            // fragment_normal portrait
+            // normal portrait
             case Surface.ROTATION_0:
                 return 0;
             // expected landscape
